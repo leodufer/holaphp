@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax con PHP</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<form>
+		<input type="text" name="name" id="name">
+		<input type="submit">
+	</form>
+	<div id="result">
+		
+	</div>
+	<script type="text/javascript">
+		$("form").submit(function(e) {
+			e.preventDefault();
+			var name=$("#name").val();
+			$.get("procesar.php",{'name':name},function (result) {
+				$("#result").html(result);
+			})
+		});
+		
+	</script>
+</body>
+</html>
